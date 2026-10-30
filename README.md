@@ -1,5 +1,4 @@
-<<<<<<< HEAD
 # To-Do List, версия B
-=======
 # To-Do List, версия A
->>>>>>> feature/readme-a
+git add README.md
+git commit -m "Remove conflict markers"
