@@ -1,3 +1,16 @@
+class Storage {
++load(): list
++save(tasks: list)
+}
+class FileStorage {
+-filename: str
+}
+class MemoryStorage {
+-data: list
+}
+Storage <|-- FileStorage
+Storage <|-- MemoryStorage
+TaskManager ..> Storage
 @startuml
 class Task {
 +title: str
@@ -26,5 +39,4 @@ class ConsoleUI {
 }
 ConsoleUI --> TaskManager
 TaskManager o-- Task
-TaskManager ..> TaskStorage
 @enduml
