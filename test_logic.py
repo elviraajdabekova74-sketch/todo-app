@@ -74,6 +74,15 @@ class TestTaskManager(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.manager.mark_done("Нет такого")
 
+    def test_get_sorted_by_deadline(self):
+        result = self.manager.get_sorted_by_deadline()
+        self.assertEqual([t.title for t in result], ["Хлеб", "Цветы"])
+
+
+def test_title_is_stripped_func():
+    task = Task(" Хлеб ", "2025-11-01")
+    assert task.title == "Хлеб"
+
 
 if __name__ == "__main__":
     unittest.main()

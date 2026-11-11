@@ -34,6 +34,9 @@ class Task:
         status = "[x]" if self.done else "[ ]"
         return f"{status} {self.title} (срок: {self.deadline})"
 
+    def __repr__(self) -> str:
+        return str(self)
+
 
 class TaskManager:
     """Управляет списком дел."""
@@ -80,3 +83,9 @@ class TaskManager:
 
     def count(self) -> int:
         return len(self.tasks)
+
+    def find_by_title(self, fragment: str) -> list[Task]:
+        return [t for t in self.tasks if fragment.lower() in t.title.lower()]
+
+    def get_sorted_by_deadline(self) -> list[Task]:
+        return sorted(self.tasks, key=lambda t: t.deadline)
